@@ -13,9 +13,9 @@ import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
 
-    ///ExecutorService executorService = Executors.newFixedThreadPool(5);
     public static final String EXTRA_MESSAGE = "init.currency.luccruz.com.EXTRA_MESSAGE";
-
+    //private Toast backToast;
+    //private int counterExit = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,31 +27,40 @@ public class MainActivity extends AppCompatActivity {
     public void selectLoginButton(View view){
 
         TextView username = findViewById(R.id.txtUser);
-        //String user = (String) username.getText();
-        //username.setText("");
-
         TextView password = findViewById(R.id.txtPassword);
-        //String pass = (String) password.getText();
-        //password.setText("");
 
-        Intent intent = new Intent(MainActivity.this, Inside.class);
-        startActivity(intent);
-        alert("Welcome!");
-
-        /*if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin") ){
+        if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin") ){
+            password.setText("");
             Intent intent = new Intent(MainActivity.this, Inside.class);
             startActivity(intent);
             alert("Welcome!");
         }else{
-            username.setText(null);
-            password.setText(null);
             alert("Password or user invalid!");
-        }*/
+        }
+    }
+
+    @SuppressLint("WrongViewCast")
+    public void selectRegister(View view){
+
+        Intent intent = new Intent(MainActivity.this, Register.class);
+        startActivity(intent);
+
     }
 
     public void alert(String message){
-
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-
     }
+
+    /*
+    @Override
+    public void onBackPressed(){
+        counterExit +=1;
+        if(counterExit == 2){
+            super.onBackPressed();
+        }else{
+            Toast.makeText(this, "Press return again to exit!", Toast.LENGTH_SHORT).show();
+        }
+    }*/
+
+
 }

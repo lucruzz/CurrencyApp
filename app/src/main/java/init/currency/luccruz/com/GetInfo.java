@@ -78,7 +78,6 @@ public class GetInfo extends AppCompatActivity{
                 String s = tv.getText().toString();
                 if(sensorEvent.values[0] < proximitySensor.getMaximumRange()) {
                     tv.setText(moeda);
-                    //doThings(theURL);
                     doThings2(theURL);
                 }else{
                     tv.setText("");
@@ -103,18 +102,6 @@ public class GetInfo extends AppCompatActivity{
     protected void onPause(){
         super.onPause();
         sensorManager.unregisterListener(proximitySensorListener);
-    }
-
-    public void doThings(String url){
-        // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String teste = "https://economia.awesomeapi.com.br/json/last/BRL-USD";
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, teste,
-                response -> Toast.makeText(GetInfo.this, response, Toast.LENGTH_SHORT).show(), error -> Toast.makeText(GetInfo.this, "Error occurred", Toast.LENGTH_SHORT).show());
-
-        // Add the request to the RequestQueue.
-        queue.add(stringRequest);
     }
 
     public void doThings2(String url){

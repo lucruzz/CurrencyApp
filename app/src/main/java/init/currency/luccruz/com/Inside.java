@@ -17,6 +17,9 @@ public class Inside extends AppCompatActivity{
     TextView textResult;
     Button btn_getBRL, btn_getUSD, btn_getEUR, btn_getBTC, btn_getCNY;
 
+    private Toast backToast;
+    private int counterExit = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,5 +83,15 @@ public class Inside extends AppCompatActivity{
 
     }
 
+/*    @Override
+    public void onBackPressed(){
+        counterExit +=1;
+        if(counterExit == 2){
+            super.onBackPressed();
+        }else{
+            Toast.makeText(this, "Press return again to exit!", Toast.LENGTH_SHORT).show();
+        }
+    }
+*/
 
 }
